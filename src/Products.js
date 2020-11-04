@@ -9,7 +9,7 @@ export default function Products({ setCart, cart }) {
             category: GROCERIES,
             name: 'Arugula',
             cost: 1.38,
-            stock: 4,
+            stock: 0,
             image:
                 'https://www.fondation-louisbonduelle.org/wp-content/uploads/2016/09/roquette_266788019.png',
         },
@@ -106,7 +106,7 @@ export default function Products({ setCart, cart }) {
     return (
         <>
             <h1>Products</h1>
-            Select a category
+            Select Department:
             <select onChange={(e) => setCategory(e.target.value)}>
                 <option value={HOLIDAY_SHOP}>{HOLIDAY_SHOP}</option>
                 <option value={GROCERIES}>{GROCERIES}</option>
@@ -118,9 +118,9 @@ export default function Products({ setCart, cart }) {
                         <h4>${product.cost}</h4>
                         <h4 className={product.stock <= 10 ? "lowStock" : "highStock"}>Stock: {product.stock}</h4>
                         <img style={{height: '100px', width: '100px'}} src={product.image} alt={product.name} />
-                        <button onClick={() => addToCart(product)}>
+                        {product.stock === 0 ? " " : <button onClick={() => addToCart(product)}>
                             Add to Cart
-                        </button>
+                        </button>}
                     </div>
                 ))}
             </div>
