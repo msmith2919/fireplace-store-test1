@@ -25,7 +25,6 @@ export default function Cart({ cart, setCart }) {
             cart.filter((product) => product !== productToRemove)
         );
     };
-
     return (
         <>
             <h1>Cart</h1>
@@ -38,6 +37,7 @@ export default function Cart({ cart, setCart }) {
                         <h3>{product.name}</h3>
                         <h4>${product.cost}</h4>
                         <h4 className={product.stock <= 10 ? "lowStock" : "highStock"}>Stock: {product.stock}</h4>
+                        <h3>{product.stock < 10 ? "Low Stock!" : ""}</h3>
                         <input
                             value={product.quantity}
                             onChange={(e) =>
@@ -56,6 +56,9 @@ export default function Cart({ cart, setCart }) {
             </div>
 
             <div>Total Cost: ${getTotalSum()}</div>
+            {cart.length === 0 ? " " : <button onClick={() => alert('Items Purchased! Thanks for your order.')}>
+                Purchase
+            </button>}
         </>
     );
 }

@@ -5,6 +5,7 @@ import Cart from './Cart';
 
 const PAGE_PRODUCTS = 'products';
 const PAGE_CART = 'cart';
+const ADMIN = 'admin';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -28,7 +29,10 @@ function App() {
             Store
           </button>
           <button onClick={() => navigateTo(PAGE_CART)}>
-            Go to Cart ({getCartTotal()})
+            My Cart ({getCartTotal()})
+          </button>
+          <button onClick={() => navigateTo(ADMIN)}>
+            Admin
           </button>
         </header>
         {page === PAGE_PRODUCTS && (
