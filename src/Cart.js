@@ -12,6 +12,11 @@ export default function Cart({ cart, setCart }) {
         setCart([]);
     };
 
+    const purchaseItems = () => {
+        alert('Items Purchased! Thanks for your order.');
+    };
+
+
     const setQuantity = (product, amount) => {
         const newCart = [...cart];
         newCart.find(
@@ -56,7 +61,7 @@ export default function Cart({ cart, setCart }) {
             </div>
 
             <div>Total Cost: ${getTotalSum()}</div>
-            {cart.length === 0 ? " " : <button onClick={() => alert('Items Purchased! Thanks for your order.')}>
+            {cart.length === 0 ? " " : <button onClick={() => {clearCart(); purchaseItems()}}>
                 Purchase
             </button>}
         </>

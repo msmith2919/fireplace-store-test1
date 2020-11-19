@@ -113,7 +113,7 @@ export default function Products({ setCart, cart }) {
             </select>
             <div className="products">
                 {getProductsInCategory().map((product, idx) => (
-                    <div className="product" key={idx}>
+                    <div className="product" key={idx} onClick={() => alert(product.name + "\n$ " + product.cost + "\nStock: " + product.stock)}>
                         <h3>{product.name}</h3>
                         <h4>${product.cost}</h4>
                         <h4 className={product.stock <= 10 ? "lowStock" : "highStock"}>Stock: {product.stock}</h4>
